@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jujutsu Focus</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+</head>
+<body class="theme-gojo">
+    <!-- Schermata iniziale per sbloccare la musica senza toccare i menu -->
+    <div id="splashScreen" class="splash-screen">
+        <div class="splash-content">
+            <h1>JUJUTSU FOCUS</h1>
+            <p>Unlock your cursed concentration energy</p>
+            <button id="enterAppBtn">ENTER DOMAIN 👁️</button>
+        </div>
+    </div>
+
+    <!-- Tracce audio -->
+    <audio id="ambientAudio" src="sigla.mp3" loop></audio>
+    <audio id="battleAudio" src="lofi.mp3" loop></audio>
+
+    <div class="app-container">
+        <header class="main-header">
+            <h1>JUJUTSU KAISEN FOCUS</h1>
+            <div class="badge">POMODORO ENGINE</div>
+        </header>
+
+        <!-- Pannello di Configurazione con Anteprima Foto -->
+        <section class="control-panel">
+            <div class="selection-row">
+                <!-- Box Foto Quadrata 100px -->
+                <div class="character-preview-box">
+                    <img id="charPreviewImg" src="" alt="Character Preview">
+                </div>
+
+                <div class="dropdowns-column">
+                    <div class="input-group">
+                        <label for="charSelect">CHOOSE CHARACTER</label>
+                        <select id="charSelect">
+                            <option value="gojo">Satoru Gojo (Hollow Purple)</option>
+                            <option value="sukuna">Ryomen Sukuna (Cleave & Dismantle)</option>
+                            <option value="itadori">Yuji Itadori (Black Flash)</option>
+                            <option value="megumi">Megumi Fushiguro (Ten Shadows Technique)</option>
+                            <option value="yuta">Yuta Okkotsu (Copy)</option>
+                            <option value="nobara">Nobara Kugisaki (Resonance)</option>
+                            <option value="toji">Toji Fushiguro (Heavenly Restriction (Physical))</option>
+                            <option value="maki">Maki Zen'in (Soul Splitter Katana)</option>
+                            <option value="inumaki">Toge Inumaki (Cursed Speech)</option>
+                            <option value="panda">Panda (Gorilla Mode)</option>
+                            <option value="choso">Choso (Piercing Blood)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="timeSelect">CHOOSE TIME</label>
+                        <select id="timeSelect">
+                            <option value="5">5 Minutes (Short Break)</option>
+                            <option value="10">10 Minutes</option>
+                            <option value="15">15 Minutes</option>
+                            <option value="25" selected>25 Minutes (Standard Work)</option>
+                            <option value="50">50 Minutes (Deep Focus)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Schermo del Dominio Attivo -->
+        <section class="domain-screen">
+            <!-- Finestra Animazione (Mostra lo screen della mossa) -->
+            <div class="media-window" id="mediaWindow"></div>
+
+            <div class="timer-wrapper">
+                <div id="timerDisplay">25:00</div>
+            </div>
+            
+            <div class="metadata-display">
+                <h2 id="activeSorcerer">Satoru Gojo</h2>
+                <h3 id="activeTechnique">Hollow Purple</h3>
+            </div>
+
+            <div class="action-row">
+                <button id="startBtn" class="main-btn primary-action">ACTIVATE TECHNIQUE</button>
+                <button id="resetBtn" class="main-btn secondary-action" disabled>❌ DISMISS TECHNIQUE</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

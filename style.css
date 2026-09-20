@@ -1,0 +1,235 @@
+:root {
+    --slate-dark: #060709;
+    --panel-color: rgba(15, 17, 26, 0.85); /* Semi-trasparente per vedere lo sfondo dietro */
+    --panel-border: #1e2230;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --sorcerer-accent: #38bdf8;
+    --glow-matrix: rgba(56, 189, 248, 0.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    transition: all 0.3s ease;
+}
+
+body {
+    /* CODICE PER LO SFONDO: Sostituisci sfondo.jpg con la tua immagine quando la trovi */
+    background-image: url('sfondo.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-color: var(--slate-dark); /* Colore di riserva */
+    
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 15px;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 480px;
+    background-color: var(--panel-color);
+    backdrop-filter: blur(8px); /* Effetto vetro sfocato sullo sfondo */
+    border: 2px solid var(--panel-border);
+    border-radius: 24px;
+    padding: 22px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.9);
+}
+
+.main-header { text-align: center; margin-bottom: 15px; }
+.main-header h1 { font-size: 24px; font-weight: 900; letter-spacing: 2px; }
+.badge { display: inline-block; font-size: 10px; background: var(--panel-border); color: var(--sorcerer-accent); padding: 2px 6px; border-radius: 4px; margin-top: 4px; }
+
+/* Layout Pannello di Configurazione Superiori */
+.control-panel {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--panel-border);
+    border-radius: 14px;
+    padding: 14px;
+    margin-bottom: 20px;
+}
+
+.selection-row {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+}
+
+/* Box Foto Quadrata 100px */
+.character-preview-box {
+    width: 100px;
+    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
+    background-color: #0b0c10;
+    border: 2px solid var(--sorcerer-accent);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px var(--glow-matrix);
+}
+
+.character-preview-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.dropdowns-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.input-group label {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: var(--text-secondary);
+}
+
+/* Colore e stile dinamico dei Menu a Tendina */
+select {
+    width: 100%;
+    padding: 8px 10px;
+    border-radius: 8px;
+    background: #11131e;
+    color: var(--sorcerer-accent); /* Colore del testo dinamico */
+    border: 1px solid var(--sorcerer-accent); /* Bordo dinamico */
+    font-size: 13px;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+}
+
+/* Schermo del Dominio */
+.domain-screen {
+    background: #040507;
+    border: 1px solid var(--panel-border);
+    border-radius: 16px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 25px var(--glow-matrix);
+}
+
+@keyframes screenShake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(0px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(2px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(2px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(0deg); }
+}
+
+.shake-active {
+    animation: screenShake 0.4s ease-in-out;
+}
+
+.media-window {
+    width: 100%;
+    height: 100%;
+    background-color: #0b0c10;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    border: 1px solid var(--panel-border);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.media-window img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#timerDisplay { font-size: 64px; font-weight: 800; font-family: monospace; color: var(--text-primary); line-height: 1; }
+.metadata-display { min-height: 65px; margin: 15px 0; }
+.metadata-display h2 { font-size: 20px; color: var(--sorcerer-accent); text-transform: uppercase; font-weight: 800; }
+.metadata-display h3 { font-size: 14px; font-style: italic; color: var(--text-primary); margin-top: 2px; }
+
+.action-row { display: flex; gap: 10px; }
+.main-btn { flex: 1; padding: 12px; border: none; border-radius: 10px; font-size: 13px; font-weight: 700; cursor: pointer; }
+.primary-action { background: linear-gradient(135deg, var(--sorcerer-accent), #4f46e5); color: white; }
+.secondary-action { background: #1a1717; color: #ef4444; border: 1px solid rgba(239, 68, 68, 0.2); }
+.secondary-action:disabled { opacity: 0.2; cursor: not-allowed; }
+
+/* Gestione delle palette colori dei Personaggi */
+.theme-gojo { --sorcerer-accent: #38bdf8; --glow-matrix: rgba(56, 189, 248, 0.15); }
+.theme-sukuna { --sorcerer-accent: #ef4444; --glow-matrix: rgba(239, 68, 68, 0.15); }
+.theme-itadori { --sorcerer-accent: #f97316; --glow-matrix: rgba(249, 115, 22, 0.15); }
+.theme-megumi { --sorcerer-accent: #10b981; --glow-matrix: rgba(16, 185, 129, 0.15); }
+.theme-yuta { --sorcerer-accent: #a5f3fc; --glow-matrix: rgba(165, 243, 252, 0.15); }
+.theme-nobara { --sorcerer-accent: #f43f5e; --glow-matrix: rgba(244, 63, 94, 0.15); }
+.theme-toji { --sorcerer-accent: #64748b; --glow-matrix: rgba(100, 116, 139, 0.15); }
+.theme-maki { --sorcerer-accent: #a855f7; --glow-matrix: rgba(168, 85, 247, 0.15); }
+.theme-inumaki { --sorcerer-accent: #e2e8f0; --glow-matrix: rgba(226, 232, 240, 0.15); }
+.theme-panda { --sorcerer-accent: #fbbf24; --glow-matrix: rgba(251, 191, 36, 0.15); }
+.theme-choso { --sorcerer-accent: #991b1b; --glow-matrix: rgba(153, 27, 27, 0.35); }
+
+/* Stile per lo Splash Screen Iniziale */
+.splash-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #060709;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.splash-content {
+    text-align: center;
+}
+
+.splash-content h1 {
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 4px;
+    color: #38bdf8;
+    margin-bottom: 5px;
+}
+
+.splash-content p {
+    font-size: 13px;
+    color: #94a3b8;
+    margin-bottom: 25px;
+}
+
+#enterAppBtn {
+    background: linear-gradient(135deg, #38bdf8, #4f46e5);
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.3);
+}
+
+#enterAppBtn:active {
+    transform: scale(0.98);
+}
