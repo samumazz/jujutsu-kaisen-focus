@@ -172,4 +172,9 @@ resetBtn.addEventListener('click', () => {
 // Esecuzione al caricamento
 updateInterfaceTheme();
 renderTimerString();
-media
+// Incolla questo alla fine del tuo file app.js per sbloccare l'installazione pulita
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js')
+    .then(() => console.log("Service Worker Registered Succesfully"))
+    .catch(err => console.log("Service Worker Registration Failed", err));
+}
